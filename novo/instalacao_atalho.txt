@@ -1,0 +1,13 @@
+ao criar um atalho para o arquivo arrecadacao.html, faça a seguinte configuração para ele abrir sempre no chrome:
+
+
+clique com o botão direito no atalho criado
+acesse o menu propriedades
+na aba atalho procure pelo campo "Destino:"
+digite entre aspas duplas o endereço do "chrome_proxy.exe"
+	*geralmente ele fica instalado em:
+		"C:\Program Files (x86)\Google\Chrome\Application\chrome_proxy.exe"
+de um espaço e coloque o endereço do atalho tambem entre aspas duplas
+ficara parecido com o exemplo abaixo:
+	"C:\Program...\Application\chrome_proxy.exe" "c:\painel\arrecadacao.html"
+clique em ok

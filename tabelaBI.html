@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/revamp.css">
+        <title>Tabela BI</title>
+    </head>
+    <body ng-controller="PainelArrecadaController">
+        <table >
+            <thead >
+                <tr>
+                    <th>Mes/Ano</th>
+                    <th ng-repeat="ano in Anos">{{ano.text}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="mes in Meses">
+                    <td>{{mes.text}}</td>
+                    <td>{{Consolidado[2].PorMes.PorMesItem[mes.value].ARRECADA_VL_TOTALMES | currency:"R$ ":2}}</td>
+                    <td>{{Consolidado[3].PorMes.PorMesItem[mes.value].ARRECADA_VL_TOTALMES | currency:"R$ ":2}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        TOTAL:
+                    </td>
+                    <td>{{Consolidado[2].ARRECADA_VL_TOTALANO | currency:"R$ ":2}}</td>
+                    <td>{{Consolidado[3].ARRECADA_VL_TOTALANO | currency:"R$ ":2}}</td>
+                </tr>
+            </tfoot>
+        </table>
+        <table> <!-- Ano de 2019-->
+            <thead>
+                <tr>
+                    <th>Ano</th>
+                    <th>Mes</th>
+                    <th>Dia</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr ng-repeat="dia in Dias"> 
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[0].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[0].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[1].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[1].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[2].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[2].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[3].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[3].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[4].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[4].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[5].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[5].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[6].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[6].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[7].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[7].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[8].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[8].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[9].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[9].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[10].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[10].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[0].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[11].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[0].PorMes.PorMesItem[Meses[11].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        <table> <!-- Ano de 2020-->
+            <thead>
+                <tr>
+                    <th>Ano</th>
+                    <th>Mes</th>
+                    <th>Dia</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr ng-repeat="dia in Dias"> 
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[0].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[0].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[1].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[1].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[2].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[2].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[3].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[3].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[4].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[4].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[5].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[5].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[6].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[6].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[7].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[7].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[8].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[8].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[9].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[9].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[10].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[10].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[1].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[11].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[1].PorMes.PorMesItem[Meses[11].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        <table> <!-- Ano de 2021-->
+            <thead>
+                <tr>
+                    <th>Ano</th>
+                    <th>Mes</th>
+                    <th>Dia</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr ng-repeat="dia in Dias"> 
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[0].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[0].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[1].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[1].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[2].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[2].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[3].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[3].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[4].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[4].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[5].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[5].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[6].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[6].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[7].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[7].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[8].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[8].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[9].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[9].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[10].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[10].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+                    <tr ng-repeat="dia in Dias">
+                        <td >{{Consolidado[2].ARRECADA_AN_ANO}}</td>
+                        <td>{{Meses[11].text}}</td>
+                        <td>{{dia.text}}</td>
+                        <td>{{Consolidado[2].PorMes.PorMesItem[Meses[11].value].PorDia.PorDiaItem[dia.value].ARRECADA_VL_TOTALDIA | currency}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <!-- Angular Material Library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <!-- Angular Material requires Angular.js Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+        <!-- Script Traducao Angular Portugues -->
+        <script src="js/angular-locale_pt-br.js" type="text/javascript"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/painelarrecada.controller.js"></script>
+    </body>
+</html>

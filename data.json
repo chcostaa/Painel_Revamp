@@ -1,0 +1,168 @@
+[
+    {
+      "ano": 2019,
+      "valoresPorMes": [
+        {
+          "mes": "Janeiro",
+          "valor": 288292832.67
+        },
+        {
+          "mes": "Fevereiro",
+          "valor": 253570825.94
+        },
+        {
+          "mes": "Março",
+          "valor": 239843007.36
+        },
+        {
+          "mes": "Abril",
+          "valor": 258114256.86
+        },
+        {
+          "mes": "Maio",
+          "valor": 263517483.55
+        },
+        {
+          "mes": "Junho",
+          "valor": 272960336.04
+        },
+        {
+          "mes": "Julho",
+          "valor": 267333518.89
+        },
+        {
+          "mes": "Agosto",
+          "valor": 292949833.44
+        },
+        {
+          "mes": "Setembro",
+          "valor": 309749391.95
+        },
+        {
+          "mes": "Outubro",
+          "valor": 366350242.52
+        },
+        {
+          "mes": "Novembro",
+          "valor": 287714796.24
+        },
+        {
+          "mes": "Dezembro",
+          "valor": 302502254.17
+        }
+        ]
+    }
+]
+
+[
+    {
+      "ano": 2020,
+      "valoresPorMes": [
+        {
+          "mes": "Janeiro",
+          "valor": 318676607.87
+        },
+        {
+          "mes": "Fevereiro",
+          "valor": 256844646.21
+        },
+        {
+          "mes": "Março",
+          "valor": 261241354.88
+        },
+        {
+          "mes": "Abril",
+          "valor": 240011683.65
+        },
+        {
+          "mes": "Maio",
+          "valor": 236679976.22
+        },
+        {
+          "mes": "Junho",
+          "valor": 272663761.9
+        },
+        {
+          "mes": "Julho",
+          "valor": 294277645.85
+        },
+        {
+          "mes": "Agosto",
+          "valor": 325883295.13
+        },
+        {
+          "mes": "Setembro",
+          "valor": 346482220.82
+        },
+        {
+          "mes": "Outubro",
+          "valor": 437657348.18
+        },
+        {
+          "mes": "Novembro",
+          "valor": 374366848.61
+        },
+        {
+          "mes": "Dezembro",
+          "valor": 359999924.79
+        }
+        ]
+    }
+]
+
+[
+    {
+      "ano": 2021,
+      "valoresPorMes": [
+        {
+          "mes": "Janeiro",
+          "valor": 386869614.9
+        },
+        {
+          "mes": "Fevereiro",
+          "valor": 313400871.84
+        },
+        {
+          "mes": "Março",
+          "valor": 307039907.42
+        },
+        {
+          "mes": "Abril",
+          "valor": 327852765.93
+        },
+        {
+          "mes": "Maio",
+          "valor": 346857653.49
+        },
+        {
+          "mes": "Junho",
+          "valor": 351684323.63
+        },
+        {
+          "mes": "Julho",
+          "valor": 373918477.14
+        },
+        {
+          "mes": "Agosto",
+          "valor": 406933438.88
+        },
+        {
+          "mes": "Setembro",
+          "valor": 420391399.46
+        },
+        {
+          "mes": "Outubro",
+          "valor": 505813714.09
+        },
+        {
+          "mes": "Novembro",
+          "valor": 441951665.39
+        },
+        {
+          "mes": "Dezembro",
+          "valor": 528610281.65
+        }
+        ]
+    }
+]
+

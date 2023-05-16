@@ -1,0 +1,254 @@
+@charset "UTF-8";
+* {
+  margin: 0%;
+  padding: 0%;
+}
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+.container-fluid {
+  height: 91%;
+}
+
+span {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+h4 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/*FIM CSS DO CORPO*/
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 2%;
+  width: 100%;
+  color: #efefef;
+  background-color: #1f4f8d;
+  font-size: 1.4rem;
+  left: 0;
+  text-align: center;
+}
+
+.semBorda {
+  border: 0;
+}
+
+.panel-header-arrecadacao {
+  padding: 3%;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.panel-header-comparacao {
+  padding: 3%;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.panel-header-arrecadacao table{
+  width: 100%;
+  text-align: center;
+  border:none;
+  margin: 0px;
+  padding: 0px;
+}
+.panel-header-arrecadacao table td{
+  border: none;
+}
+.panel-header-arrecadacao table td{
+  border: none;
+}
+.panel-footer-arrecadacao table{
+  width: 100%;
+  text-align: center;
+  border:none;
+}
+@media (max-width: 1900px) {
+  .panel-header-arrecadacao {
+    padding: 1%;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+  .panel-header-arrecadacao p {
+    display: inline;
+  }
+}
+.panel-footer-arrecadacao {
+  padding: 2% 3%;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+@media (max-width: 1900px) {
+  .panel {
+    font-size: 10px !important;
+  }
+}
+.panel-body {
+  padding: 3px;
+}
+
+/*INICIO CSS DO CABE├çALHO*/
+.topo {
+  width: 100%;
+  height: 7%;
+  color: #fff;
+  background-color: #222D32;
+}
+.topo div {
+  height: 100%;
+}
+.topo div > img {
+  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+@media (max-width: 992px) {
+  .topo div > img {
+    width: 100px;
+  }
+}
+.topo div > h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 2.3rem;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+}
+@media (max-width: 992px) {
+  .topo div > h1 {
+    font-size: 3.0vw;
+    text-align: right;
+    right: 5px;
+  }
+}
+.topo div > p {
+  font-size: 1.5rem;
+  text-align: right;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+@media (max-width: 992px) {
+  .topo div > p {
+    display: none;
+  }
+}
+
+.conteudo {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (max-width: 992px) {
+  .conteudo {
+    position: relative;
+    top: 2%;
+    transform: translateY(0);
+  }
+}
+
+.barra-subtotal {
+  margin-bottom: 5%;
+}
+
+.progress {
+  height: 3.5rem;
+}
+.progress-bar-success {
+  background-color: #00A65A;
+}
+
+.table {
+  margin-bottom: 0;
+  font-weight: bold;
+  text-align: right;
+}
+
+.colunaToLeft {
+  text-align: left;
+}
+
+.colunaToRight {
+  text-align: left;
+}
+
+.contentCenter {
+  text-align: left;
+}
+
+.tituloTabela > tr > td, .totalizacaoTabela > tr > td {
+  font-weight: bolder !important;
+  background-color: #00C0EF !important;
+  color: #fff;
+}
+
+.tituloTabela > tr > td {
+  text-align: center !important;
+}
+
+.cores-primarias-arrecadacao-atual {
+  border-top-left-radius: 15pt;
+  border-top-right-radius: 15pt;
+  background-color: #0896a8;
+  color: #fff;
+}
+.cores-primarias-arrecadacao-anterior {
+  border-top-left-radius: 15pt;
+  border-top-right-radius: 15pt;
+  background-color: #0896a8;
+  color: #fff;
+}
+.cores-secundarias-arrecadacao-atual {
+  border-bottom-left-radius: 15pt;
+  border-bottom-right-radius: 15pt;
+  color: #222D32;
+  background-color: #e9e8e8;
+}
+.cores-secundarias-arrecadacao-anterior {
+  border-bottom-left-radius: 15pt;
+  border-bottom-right-radius: 15pt;
+  color: #222D32;
+  background-color: #e9e8e8;
+}
+.cores-comparacao{
+  color: #fff;
+  background-color: #1699D1;
+}
+
+.valores {
+  float: right;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.font{
+  font-size: large;
+  font-style: oblique;
+}
+
+/* INÍCIO DO CSS DO REVAMP */
+

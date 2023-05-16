@@ -1,0 +1,34 @@
+.table {
+    margin-bottom: 0;
+    font-weight: bold;
+    text-align: right;
+}
+
+.colunaToLeft {
+    text-align: left;
+}
+
+.colunaToRight {
+    text-align: left;
+}
+
+.contentCenter {
+    text-align: left;
+}
+
+%cabeca_pe {
+    font-weight: bolder !important;
+    background-color: $bgBluePrim !important;
+    color: $fontWhitePrim;
+}
+
+.tituloTabela {
+    & > tr > td {
+        text-align: center !important;
+        @extend %cabeca_pe;
+    }
+}
+
+.totalizacaoTabela > tr > td {
+    @extend %cabeca_pe;
+}

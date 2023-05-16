@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+	<title>Painel Arrecadação</title>
+</head>
+
+<body ng-controller="PainelArrecadaController">
+
+	<header class="topo">
+		<div class="col-md-2">
+			<img src="img/LOGOSEFAZ.png" alt="Logo SEFAZ" class="logoSEFAZ">
+		</div>
+		<div class="col-md-8">
+			<h1 onclick="mostra();">PAINEL DE ARRECADAÇÃO TRIBUTÁRIA</h1>
+		</div>
+		<div class="col-md-2">
+			<p>{{DadosPainel.Arrecadacaosumarizadamsg.DataHoje | date : 'medium'}}</p>
+		</div>
+	</header>
+
+	<!-- Para mostrar os dados do PDAAF -->
+	<div id="alertPdaaf" class="alert alert-warning alert-dismissible" role="alert" hidden>
+		<div>
+			<h4>Falta arrecadar {{ICMSPdaafRestante | currency:"R$":2}} ({{105 - META_PERCENTUAL | currency:"":2}}%)
+			</h4>
+			<h4>para alcançar os {{ICMSPdaaf | currency:"R$":2}}</h4>
+			<h4><strong>e receber o PDAAF cheio (30%)</strong></h4>
+
+		</div>
+	</div>
+
+	<!--classe container geral-->
+	<section class="container-fluid corpo">
+		<div class="conteudo">
+
+			<!--Inicio da linhas com os 3 totais-->
+			<div class="row">
+
+				<!--primeiro painel-->
+				<div class="col-md-4">
+					<div class="panel panel-default semBorda">
+						<div class="panel-header-arrecadacao cores-primarias-arrecadacao-atual">
+							<p>R$</p>
+							<p>{{DadosPainel.Arrecadacaosumarizadamsg.MesAtual.ValorAcumulado | currency:"":2}}</p>
+						</div>
+						<div class="panel-footer-arrecadacao cores-secundarias-arrecadacao-atual">
+							{{DadosPainel.Arrecadacaosumarizadamsg.DataHoje | date: 'dd/MM/yyyy' : 'UTC'}}</div>
+					</div>
+				</div>
+				<!--segundo painel-->
+				<div class="col-md-4">
+					<div class="panel panel-default semBorda">
+						<div class="panel-header-arrecadacao cores-primarias-arrecadacao-anterior">
+							<p>R$</p>
+							<p>{{MesAnterior | currency:"":2}}</p>
+
+						</div>
+						<div class="panel-footer-arrecadacao cores-secundarias-arrecadacao-anterior">
+							{{DadosPainel.Arrecadacaosumarizadamsg.DataMesAnterior | date: 'dd/MM/yyyy' : 'UTC'}}</div>
+					</div>
+				</div>
+
+				<!--terceiro painel-->
+				<div class="col-md-4">
+					<div class="panel panel-default semBorda">
+						<div class="panel-header-arrecadacao cores-primarias-arrecadacao-anterior">
+							<p>R$</p>
+							<p>{{AnoMesAnterior | currency:"":2}}</p>
+						</div>
+						<div class="panel-footer-arrecadacao cores-secundarias-arrecadacao-anterior">
+							{{DadosPainel.Arrecadacaosumarizadamsg.DataAnoAnterior | date: 'dd/MM/yyyy' : 'UTC'}}</div>
+					</div>
+				</div>
+			</div>
+			<!-- //Fim da linha com os tres totais -->
+
+			<!--Inicio do painel de barras de progresso-->
+			<div class="row">
+
+				<div class="col-md-4">
+					<div class="panel panel-default">
+
+						<div class="panel-heading">
+							<h4 class="panel-title">SUBTOTAIS (POR IMPOSTO)</h4>
+						</div>
+
+						<div class="panel-body">
+							<div class="barra-subtotal" ng-show="ICMS > 0">
+								<span>ICMS</span> <span id="valores"> {{ICMS  | currency:"R$":2}} </span>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped active"
+										role="progressbar" aria-valuenow="{{ICMSPercentual}}" aria-valuemin="0"
+										aria-valuemax="100" ng-style="{width : ( ICMSPercentual + '%' ) }">
+									</div>
+								</div>
+							</div>
+
+							<div class="barra-subtotal" ng-show="IPVA > 0">
+								<span>IPVA</span> <span id="valores"> {{IPVA  | currency:"R$":2}} </span>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped active"
+										role="progressbar" aria-valuenow="{{IPVAPercentual}}" aria-valuemin="0"
+										aria-valuemax="100" ng-style="{width : ( IPVAPercentual + '%' ) }">
+									</div>
+								</div>
+							</div>
+
+							<div class="barra-subtotal" ng-show="ITCD > 0">
+								<span>ITCD</span> <span id="valores"> {{ITCD  | currency:"R$":2}} </span>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped active"
+										role="progressbar" aria-valuenow="{{ITCDPercentual}}" aria-valuemin="0"
+										aria-valuemax="100" ng-style="{width : ( ITCDPercentual + '%' ) }">
+									</div>
+								</div>
+							</div>
+
+							<div class="barra-subtotal" ng-show="OUTRO > 0">
+								<span>Outras Receitas</span> <span id="num"> {{OUTRO | currency:"R$":2}} </span>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped active"
+										role="progressbar" aria-valuenow="{{OUTROPercentual}}" aria-valuemin="0"
+										aria-valuemax="100" ng-style="{width : ( OUTROPercentual + '%' ) }">
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //fim panel-body -->
+						<div class="panel-footer cores-secundarias-arrecadacao-meta">
+						<!--	<p class="p-meta">META: R$ {{META_ARRECADACAO | currency:"":2}}</p> -->
+							<p class="p-meta">ICMS arrecadado: R$ {{ICMS  | currency:"":2}} (em {{DIA_ATUAL_MES}} dias)
+							</p>
+							<p class="p-meta">Média diária atual: R$ {{ICMS / DIA_ATUAL_MES  | currency:"":2}}</p>
+							<p class="p-meta">{{ICMSRestante}}</p>
+							<p class="p-meta">Média diária restante: R$ {{ICMSMediaRestante | currency:"":2}}</p>
+							<p class="p-meta">Porcentagem atingida:{{META_PERCENTUAL | currency:"":2}}%</p>
+						</div>
+					</div>
+					<!-- //fim panel -->
+				</div>
+				<!--//fim col-md-4-->
+
+				<!--inicio da tabela -->
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="headingOne">
+										<h4 class="panel-title">
+											<a id="date_lab1" role="button" data-toggle="collapse"
+												data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+												aria-controls="collapseOne"></a>
+										</h4>
+									</div>
+									<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+										aria-labelledby="headingOne">
+										<div class="panel-body">
+											<table class="table table-striped ">
+												<thead class="tituloTabela">
+													<tr class="info">
+															<td class="colunaMes">Mes/Ano</td>
+															<td ng-repeat="ano in Anos" class="info">{{ano.text}}</td>
+															<td class="Percentual">Ano Atual/Ano anterior (%)</td>
+													</tr>
+												</thead>
+												<tbody>
+													<tr ng-repeat="mes in Meses">
+														<td class="colunaMes">{{mes.text}}</td>
+														<td>{{Consolidado[2].PorMes.PorMesItem[mes.value].ARRECADA_VL_TOTALMES | currency:"R$ ":2}}</td>
+														<td>{{Consolidado[3].PorMes.PorMesItem[mes.value].ARRECADA_VL_TOTALMES | currency:"R$ ":2}}</td>
+														<td>{{Consolidado[2].PorMes.PorMesItem[mes.value].ARRECADA_VL_TOTALMES/Consolidado[3].PorMes.PorMesItem[mes.value].ARRECADA_VL_TOTALMES  * 100| currency:"":2}}%
+														</td>
+													</tr>
+												</tbody>
+												<tfoot class="totalizacaoTabela">
+													<tr>
+														<td>TOTAL:</td>
+														<!--<td>{{Consolidado[0].ARRECADA_VL_TOTALANO | currency:"R$ ":2}}
+														</td>
+														<td>{{Consolidado[1].ARRECADA_VL_TOTALANO | currency:"R$ ":2}}-->
+														</td>
+														<td>{{Consolidado[2].ARRECADA_VL_TOTALANO | currency:"R$ ":2}}</td>
+														<td>{{Consolidado[3].ARRECADA_VL_TOTALANO | currency:"R$ ":2}}</td>
+															<td>{{Consolidado[2].ARRECADA_VL_TOTALANO/Consolidado[3].ARRECADA_VL_TOTALANO | currency:"":2}}%
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+								</div>
+
+								<!-- Painel toggle -->
+								<!-- <div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="headingTwo">
+										<h4 class="panel-title">
+											<a class="collapsed" role="button" data-toggle="collapse"
+												data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+												aria-controls="collapseTwo">
+												Conteúdo em construção!!!
+											</a>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+										aria-labelledby="headingTwo">
+										<div class="panel-body">
+											Conteúdo em construção!!!
+										</div>
+									</div>
+								</div> -->
+
+							</div>
+							<!-- // fim do panel group -->
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12" style="text-align: center;">
+							<!-- Button trigger modal -->
+							<!-- 
+							<button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+								data-target="#myModal1">
+								Mapa das DRFs
+							</button>
+							<button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+								data-target="#myModal2">
+								Mapa de Arrecadação Mensal das DRFs
+							</button>
+							-->
+							<!-- Modal -->
+							<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+								aria-labelledby="myModalLabel">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel">Mapa das Delegacias Regionais de
+												Fiscalização</h4>
+										</div>
+										<div class="modal-body">
+											<a href="map_DRF.html">
+												<img src="img/mapa_delegacias.jpg" class="img-responsive"
+													alt="Mapa das Delegacias Regionais de Fiscalização">
+											</a>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- // fim do modal -->
+							<!-- Modal -->
+							<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+								aria-labelledby="myModalLabel">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel">Mapa de Arrecadação Mensal das
+												Delegacias Regionais de Fiscalização</h4>
+										</div>
+										<div class="modal-body">
+											<a href="mapa_arrec_regionais_comparativo-08_09.html">
+												<img src="img/mapa_arrec_regionais_comparativo-08_09.jpg"
+													class="img-responsive"
+													alt="Mapa de Arrecadação Mensal das Delegacias Regionais de Fiscalização">
+											</a>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- // fim do modal -->
+						</div>
+					</div>
+				</div>
+				<!--//fim da col-md-8 -->
+
+			</div>
+			<!-- //fim row -->
+
+		</div>
+
+		<!-- //fim geral -->
+	</section>
+
+	<audio id="audio">
+		<source src="audio/alerta.mp3" type="audio/mp3">
+	</audio>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Script Traducao Angular Portugues -->
+	<script src="js/angular-locale_pt-br.js" type="text/javascript"></script>
+	<script src="scripts/app.js"></script>
+	<script src="scripts/painelarrecada.controller.js"></script>
+
+	<script>
+		var data = new Date().getFullYear();
+		var data1 = data - 1;
+		document.getElementById("date_lab1").append("ARRECADAÇÃO - " + data1 + " À " + data);
+
+		function mostra() {
+			$("#alertPdaaf").toggle();
+		}
+	</script>
+
+	<script type="text/javascript">
+		// * *
+		// * Script para trocar de pagina a cada x milisegundos
+		// * *
+
+		// setTimeout( function () {
+		// 	$(document).ready( function () {
+		// 		url = "map_DRF.html";
+		// 		$(location).attr("href", url);
+		// 	});
+		// }, 20000);
+	</script>
+
+
+</body>
+
+</html>

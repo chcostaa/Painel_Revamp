@@ -1,0 +1,21 @@
+.cores {
+    &-primarias-arrecadacao-atual {
+        background-color: $bgGreenPrim;
+        color: $fontWhitePrim;
+    }
+
+    &-primarias-arrecadacao-anterior {
+        background-color: $bgBluePrim;
+        color: $fontWhitePrim;
+    }
+
+    &-secundarias-arrecadacao-atual {
+        color: $fontWhitePrim;
+        background-color: $bgGreenSec;
+    }
+
+    &-secundarias-arrecadacao-anterior {
+        background-color: $bgBlueSec;
+        color: $fontWhitePrim;
+    }
+}

@@ -1,0 +1,42 @@
+.semBorda {
+    border: 0;
+}
+
+.panel {
+    &-header-arrecadacao {
+        padding: 3%;
+        font-size: 5rem;
+        font-weight: bold;
+        text-align: center;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        @media #{$mediaQueries} {
+            padding: 1%;
+            font-size: 4rem;
+            font-weight: bold;
+            text-align: center;
+            border-top-right-radius: 3px;
+            border-top-left-radius: 3px;
+
+            p {
+                display: inline;
+            };
+        }
+    }
+
+    &-footer-arrecadacao {
+        padding: 2% 3%;
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+    @media #{$mediaQueries} {
+        font-size: 10px !important;
+    }
+
+    &-body {
+        padding: 3px;
+    }
+}
