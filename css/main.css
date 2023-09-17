@@ -21,6 +21,7 @@ h4 {
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
+  align-itens: center;
 }
 
 /*FIM CSS DO CORPO*/
@@ -189,15 +190,15 @@ footer {
 }
 
 .colunaToLeft {
-  text-align: left;
+  text-align: center;
 }
 
 .colunaToRight {
-  text-align: left;
+  text-align: center;
 }
 
 .contentCenter {
-  text-align: left;
+  text-align: center;
 }
 
 .tituloTabela > tr > td, .totalizacaoTabela > tr > td {
